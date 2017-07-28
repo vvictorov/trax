@@ -1,0 +1,16 @@
+.card-track{
+    display: inline-block;
+    margin:20px 0;
+}
+
+.card-track-title{
+    min-height:40px;
+}
+
+.card-track-subtitle{
+
+}
+
+.card-track-image{
+    height:180px;
+}
