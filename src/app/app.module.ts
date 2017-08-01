@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { AudioPlayerModule } from './audio-player/audio-player.module';
 
+
+import { AudioPlayerService } from './audio-player.service';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -15,20 +18,21 @@ import { MyTracksComponent } from './my-tracks/my-tracks.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavigationComponent,
-    HomeComponent,
-    PopularComponent,
-    MyTracksComponent
+      AppComponent,
+      NavigationComponent,
+      HomeComponent,
+      PopularComponent,
+      MyTracksComponent
   ],
   imports: [
-    BrowserModule,
-    NgbModule.forRoot(),
-    BrowserAnimationsModule,
-    AngularMaterialModule,
-    AppRoutingModule,
+      BrowserModule,
+      NgbModule.forRoot(),
+      BrowserAnimationsModule,
+      AngularMaterialModule,
+      AppRoutingModule,
+      AudioPlayerModule
   ],
-  providers: [],
+  providers: [AudioPlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
