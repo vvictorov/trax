@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [TracksService, AudioPlayerService]
+  providers: [TracksService]
 })
 export class HomeComponent implements OnInit {
 

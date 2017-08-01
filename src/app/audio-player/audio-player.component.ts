@@ -21,10 +21,10 @@ import { AudioPlayerService } from '../audio-player.service';
         height: '0px',
         visibility: 'hidden'
       })),
-      transition('open => closed', animate('500ms ease-out')),
-      transition('closed => open', animate('500ms ease-in')),
-      transition('minimized => open', animate('500ms ease-in')),
-      transition('open => minimized', animate('500ms ease-out')),
+      transition('open => closed', animate('200ms ease-out')),
+      transition('closed => open', animate('200ms ease-in')),
+      transition('minimized => open', animate('200ms ease-in')),
+      transition('open => minimized', animate('200ms ease-out')),
     ])
   ]
 })

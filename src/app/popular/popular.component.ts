@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular.component.css']
 })
 export class PopularComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit() {
   }
 
