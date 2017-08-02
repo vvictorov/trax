@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import {Subscription} from 'rxjs/Subscription';
 import { AudioPlayerService } from '../audio-player.service';
+import { Track } from '../track';
 
 @Component({
   selector: 'app-audio-player',
@@ -28,14 +29,19 @@ import { AudioPlayerService } from '../audio-player.service';
     ])
   ]
 })
-export class AudioPlayerComponent implements OnInit {
+export class AudioPlayerComponent implements OnInit, OnDestroy {
 
   public openState = 'closed';
+  public track: Track;
+  public duration: string;
+  public currentTime: string;
+  @Input() sliderColor = 'red';
   subscription: Subscription;
   constructor(private audioPlayerService: AudioPlayerService ) {
-    this.subscription = audioPlayerService.stateChanged$.subscribe(state => {
-      console.log(state);
-      this.openState = state;
+    this.subscription = audioPlayerService.trackPlayed$.subscribe(track => {
+      this.track = track;
+      this.openState = 'open';
+      this.duration = track.audio.duration.toString();
     });
   }
 
@@ -53,7 +59,27 @@ export class AudioPlayerComponent implements OnInit {
       default: break;
     }
   }
+  timelineSliderHover(mouseleave: boolean) {
+    for (const thumb of Array.from(document.getElementsByClassName('mat-slider-thumb'))) {
+      if (mouseleave) {
+        thumb.classList.add('hide-player-thumb');
+        thumb.classList.remove('show-player-thumb');
+      }else {
+        thumb.classList.add('show-player-thumb');
+        thumb.classList.remove('hide-player-thumb');
+      }
+    }
+  }
   ngOnInit() {
+    for (const thumb of Array.from(document.getElementsByClassName('mat-slider-thumb'))) {
+      thumb.classList.add('hide-player-thumb');
+    }
+    for (const trackBackground of Array.from(document.getElementsByClassName('mat-slider-track-background'))) {
+      trackBackground.classList.add('player-track-background');
+    }
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

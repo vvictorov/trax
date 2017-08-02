@@ -9,3 +9,83 @@ body{
     background-color: #2a2a2a;
     color: #c4c4c4;
 }
+
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeIn {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@-o-keyframes fadeIn {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity:1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-webkit-keyframes fadeOut{
+    0%{
+        opacity:1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeOut {
+    0%{
+        opacity:1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-o-keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.hide-player-thumb{
+    animation: 300ms fadeOut;
+    opacity:0;
+}
+
+.show-player-thumb{
+    animation: 300ms fadeIn;
+    opacity:1;
+}
+
+.player-track-background{
+
+}

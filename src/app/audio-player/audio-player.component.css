@@ -6,3 +6,38 @@
     border-top:2px solid #0e0e0e;
     bottom:0;
 }
+
+.player-controls{
+
+}
+
+.player-controls .control{
+    background-color: transparent;
+    border: none;
+    padding:0;
+    outline: none;
+    margin: 17px 10px;
+}
+
+.timeline-slider{
+    position:relative;
+    width:85%;
+    margin:22px 0;
+    cursor: pointer;
+}
+
+.disable-thumb{
+    visibility: hidden;
+}
+
+.timeline .current-time{
+    position:relative;
+    float:left;
+    margin: 35px 0;
+}
+
+.timeline .total-time{
+    position:relative;
+    float: right;
+    margin: 34px 0;
+}

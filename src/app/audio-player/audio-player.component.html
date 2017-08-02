@@ -1,3 +1,27 @@
 <div class="player-container" [@openState]="openState">
+    <div class="row">
+        <div class="col-lg-3 text-center">
+            <div class="player-controls">
+                <button type="button" class="control"><md-icon class="control">skip_previous</md-icon></button>
+                <button type="button" class="control"><md-icon class="control">pause</md-icon></button>
+                <button type="button" class="control"><md-icon class="control">skip_next</md-icon></button>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <div class="timeline">
+                <div class="current-time">0:00</div>
+                <md-slider
+                    class="timeline-slider"
+                    (mouseover)='timelineSliderHover(false)'
+                    (mouseleave)='timelineSliderHover(true)'
+                    value="10"
+                    >
+                </md-slider>
+                <div class="total-time">{{track ? duration : '00'}}</div>
+            </div>
+        </div>
+        <div class="col-lg-3 text-center">
 
+        </div>
+    </div>
 </div>
