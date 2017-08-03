@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './popular/popular.component';
 import { MyTracksComponent } from './my-tracks/my-tracks.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MyTracksComponent } from './my-tracks/my-tracks.component';
       BrowserModule,
       NgbModule.forRoot(),
       BrowserAnimationsModule,
+      FormsModule,
       AngularMaterialModule,
       AppRoutingModule,
       AudioPlayerModule

@@ -10,8 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./home.component.css'],
   providers: [TracksService]
 })
-export class HomeComponent implements OnInit, OnDestroy
-{
+export class HomeComponent implements OnInit, OnDestroy {
   constructor(private TracksService: TracksService, private audioPlayerService: AudioPlayerService ) {
     this.subscription = audioPlayerService.trackPlayed$.subscribe(track => {
       // TODO

@@ -9,15 +9,18 @@
         </div>
         <div class="col-lg-6 text-center">
             <div class="timeline">
-                <div class="current-time">0:00</div>
+                <div class="current-time">{{currentTimeString}}</div>
                 <md-slider
                     class="timeline-slider"
-                    (mouseover)='timelineSliderHover(false)'
-                    (mouseleave)='timelineSliderHover(true)'
-                    value="10"
+                    (mouseover)='timeSliderHover(false)'
+                    (mouseleave)='timeSliderHover(true)'
+                    min="0"
+                    max="{{sliderMax}}"
+                    [(ngModel)]="value"
+                    (click)="changeTime()"
                     >
                 </md-slider>
-                <div class="total-time">{{track ? duration : '00'}}</div>
+                <div class="total-time">{{track ? durationString : '0:00'}}</div>
             </div>
         </div>
         <div class="col-lg-3 text-center">
