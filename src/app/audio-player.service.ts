@@ -25,4 +25,15 @@ export class AudioPlayerService {
             this.trackPlayedSource.next(track);
         };
     }
+    pause(): void {
+        this.audio.pause();
+        this.isPlaying = false;
+    }
+    resume(): void {
+        this.audio.play();
+        this.isPlaying = true;
+    }
+    setTime(time: number) {
+        this.audio.currentTime = time;
+    }
 }

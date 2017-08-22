@@ -1,11 +1,8 @@
 <div class="player-container" [@openState]="openState">
     <div class="row">
         <div class="col-lg-3 text-center">
-            <div class="player-controls">
-                <button type="button" class="control"><md-icon class="control">skip_previous</md-icon></button>
-                <button type="button" class="control"><md-icon class="control">pause</md-icon></button>
-                <button type="button" class="control"><md-icon class="control">skip_next</md-icon></button>
-            </div>
+            <img *ngIf="track && track.image" id="track-avatar-img" src="{{track.image.path}}"/>
+            <h4 id="track-name">{{track?.name}}</h4>
         </div>
         <div class="col-lg-6 text-center">
             <div class="timeline">
@@ -24,7 +21,12 @@
             </div>
         </div>
         <div class="col-lg-3 text-center">
-
+            <div class="player-controls">
+                <button type="button" class="control"><md-icon class="control">skip_previous</md-icon></button>
+                <button type="button" class="control" *ngIf="isPlaying" (click)="pause()"><md-icon class="control">pause</md-icon></button>
+                <button type="button" class="control" *ngIf="!isPlaying" (click)="resume()"><md-icon class="control">play_arrow</md-icon></button>
+                <button type="button" class="control"><md-icon class="control">skip_next</md-icon></button>
+            </div>
         </div>
     </div>
 </div>

@@ -34,12 +34,14 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
 
   public openState = 'closed';
   public track: Track;
+  public isPlaying = false;
   private duration: number;
   public durationString: string;
   private currentTime: number;
   public currentTimeString: string;
   public value = 0;
   public sliderMax: number;
+  public sliderDragged = false;
   private timer = {
     interval: setInterval(() => {}, 100),
     start: () => {
@@ -48,9 +50,14 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
         if (this.currentTime <= this.duration) {
           this.currentTime += 0.1;
           this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
-          this.value += 0.1;
+          if (!this.sliderDragged) {
+            this.value += 0.1;
+          }
         }
       }, 100);
+    },
+    pause: () => {
+      clearInterval(this.timer.interval);
     },
     stop: () => {
       clearInterval(this.timer.interval);
@@ -62,10 +69,6 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
   constructor(private audioPlayerService: AudioPlayerService ) {
     this.subscription = audioPlayerService.trackPlayed$.subscribe(track => {
       this.track = track;
-      this.openState = 'open';
-      this.duration = track.audio.duration;
-      this.durationString = AudioPlayerComponent.parseTime(track.audio.duration);
-      this.sliderMax = this.duration;
       this.play(this.track);
     });
   }
@@ -110,17 +113,37 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
       track = this.track;
     }
     if (track) {
+      this.openState = 'open';
+      this.duration = track.audio.duration;
+      this.durationString = AudioPlayerComponent.parseTime(track.audio.duration);
+      this.sliderMax = this.duration;
       this.currentTime = 0;
       this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
       this.value = 0;
       this.timer.start();
+      this.isPlaying = this.audioPlayerService.isPlaying;
     }
   }
+  pause(): void {
+    this.audioPlayerService.pause();
+    this.isPlaying = this.audioPlayerService.isPlaying;
+    this.timer.pause();
+  }
+  resume(): void {
+    this.audioPlayerService.resume();
+    this.isPlaying = this.audioPlayerService.isPlaying;
+    this.timer.start();
+  }
   changeTime(): void {
-    alert(this.value);
+    this.currentTime = this.value;
+    this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
+    this.audioPlayerService.setTime(this.value);
   }
   ngOnInit() {
     for (const thumb of Array.from(document.getElementsByClassName('mat-slider-thumb'))) {
+      thumb.addEventListener('dragstart', () => {
+        alert('start');
+      });
       thumb.classList.add('hide-player-thumb');
     }
     for (const trackBackground of Array.from(document.getElementsByClassName('mat-slider-track-background'))) {

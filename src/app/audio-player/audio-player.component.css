@@ -41,3 +41,18 @@
     float: right;
     margin: 34px 0;
 }
+
+#track-name{
+    float:left;
+    padding-top:10px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+#track-avatar-img{
+    float:left;
+    position: relative;
+    margin: 15px 50px;
+    height: 64px;
+    width: 64px;
+}
