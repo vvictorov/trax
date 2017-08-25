@@ -79,11 +79,13 @@ body{
 .hide-player-thumb{
     animation: 300ms fadeOut;
     opacity:0;
+    cursor: pointer !important;
 }
 
 .show-player-thumb{
     animation: 300ms fadeIn;
     opacity:1;
+    cursor: pointer !important;
 }
 
 .player-track-background{

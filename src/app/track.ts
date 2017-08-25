@@ -22,12 +22,14 @@ export class TrackAudio {
 export class Track {
     id: number;
     name: string;
+    genre: string;
     image: TrackImage;
     audio: TrackAudio;
-    constructor(id: number, name: string, image: TrackImage, sound: TrackAudio) {
+    constructor(id: number, name: string, genre: string, image: TrackImage, sound: TrackAudio) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.audio = sound;
+        this.genre = genre;
     }
 }

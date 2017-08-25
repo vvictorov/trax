@@ -11,7 +11,7 @@ export class TracksService {
     for (const trackJson of TRACKS){
       const image = new TrackImage(trackJson.image);
       const sound = new TrackAudio(trackJson.sound);
-      const track = new Track(trackJson.id, trackJson.name, image, sound);
+      const track = new Track(trackJson.id, trackJson.name, trackJson.genre, image, sound);
       tracks.push(track);
     }
     return tracks;
