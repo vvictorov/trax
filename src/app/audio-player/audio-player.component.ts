@@ -35,12 +35,11 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
     public openState = 'closed';
     public track: Track;
     public isPlaying = false;
-    private duration: number;
+    protected duration: number;
     public durationString: string;
     private currentTime: number;
     public currentTimeString: string;
-    public value = 0;
-    public sliderMax: number;
+    public sliderValue = 0;
     public sliderDragged = false;
     private timer = {
         interval: setInterval(() => {
@@ -52,7 +51,7 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
                     this.currentTime += 0.1;
                     this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
                     if (!this.sliderDragged) {
-                        this.value += 0.1;
+                        this.sliderValue += 0.1;
                     }
                 }
             }, 100);
@@ -98,22 +97,6 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
         }
     }
 
-    changePlayerState(state: string): void {
-        switch (state) {
-            case 'open':
-                this.openState = 'open';
-                break;
-            case 'closed':
-                this.openState = 'closed';
-                break;
-            case 'minimized':
-                this.openState = 'minimized';
-                break;
-            default:
-                break;
-        }
-    }
-
     play(track: Track): void {
         if (!track) {
             track = this.track;
@@ -122,10 +105,9 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
             this.openState = 'open';
             this.duration = track.audio.duration;
             this.durationString = AudioPlayerComponent.parseTime(track.audio.duration);
-            this.sliderMax = this.duration;
             this.currentTime = 0;
             this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
-            this.value = 0;
+            this.sliderValue = 0;
             this.timer.start();
             this.isPlaying = this.audioPlayerService.isPlaying;
         }
@@ -143,26 +125,22 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
         this.timer.start();
     }
 
-    changeTime(): void {
-        this.currentTime = this.value;
+    changeTime(time: number): void {
+        this.currentTime = this.sliderValue = time;
         this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
-        this.audioPlayerService.setTime(this.value);
+        this.audioPlayerService.setTime(this.sliderValue);
     }
-
     ngOnInit() {
-        const playerContainer = document.getElementsByClassName('player-container')[0];
-        const thumb = document.getElementsByClassName('mat-slider-thumb')[0];
-        thumb.addEventListener('mousedown', () => {
+        const slider = document.getElementById('time-slider');
+        slider.addEventListener('mousedown', () => {
             this.sliderDragged = true;
         });
-        thumb.addEventListener('mouseup', () => {
+        slider.addEventListener('mouseup', () => {
             this.sliderDragged = false;
-            this.changeTime();
         });
-        thumb.classList.add('hide-player-thumb');
-        playerContainer.addEventListener('mouseleave', () => {
-            thumb.dispatchEvent(new Event('mouseup'));
-        });
+        for (const thumb of Array.from(document.getElementsByClassName('mat-slider-thumb'))) {
+            thumb.classList.add('hide-player-thumb');
+        }
         for (const trackBackground of Array.from(document.getElementsByClassName('mat-slider-track-background'))) {
             trackBackground.classList.add('player-track-background');
         }

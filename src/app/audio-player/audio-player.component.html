@@ -9,13 +9,13 @@
             <div class="timeline">
                 <div class="current-time">{{currentTimeString}}</div>
                 <md-slider
-                    class="timeline-slider"
+                    id="time-slider"
                     (mouseover)='timeSliderHover(false)'
                     (mouseleave)='timeSliderHover(true)'
                     min="0"
-                    max="{{sliderMax}}"
-                    [(ngModel)]="value"
-                    (click)="changeTime()"
+                    max="{{duration}}"
+                    [value]="sliderValue"
+                    (change)="changeTime($event.value)"
                     >
                 </md-slider>
                 <div class="total-time">{{track ? durationString : '0:00'}}</div>
