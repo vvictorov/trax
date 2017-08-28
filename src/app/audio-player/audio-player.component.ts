@@ -46,23 +46,39 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
         }, 100),
         start: () => {
             clearInterval(this.timer.interval);
+            this.timer.change();
             this.timer.interval = setInterval(() => {
-                if (this.currentTime <= this.duration) {
+                if (this.currentTime < this.duration) {
+                    this.isPlaying = true;
                     this.currentTime += 0.1;
                     this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
                     if (!this.sliderDragged) {
                         this.sliderValue += 0.1;
+                    }
+                }else {
+                    if (this.isPlaying) {
+                        this.audioPlayerService.pause();
+                        this.timer.pause();
+                    }else {
+                        this.timer.stop();
+                        this.sliderValue = 0;
+                        this.audioPlayerService.play(this.track);
                     }
                 }
             }, 100);
         },
         pause: () => {
             clearInterval(this.timer.interval);
+            this.timer.change();
         },
         stop: () => {
             clearInterval(this.timer.interval);
             this.currentTime = 0;
             this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
+            this.timer.change();
+        },
+        change: () => {
+            this.isPlaying = this.audioPlayerService.isPlaying;
         }
     };
     private subscription: Subscription;
@@ -109,33 +125,32 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
             this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
             this.sliderValue = 0;
             this.timer.start();
-            this.isPlaying = this.audioPlayerService.isPlaying;
         }
     }
 
     pause(): void {
         this.audioPlayerService.pause();
-        this.isPlaying = this.audioPlayerService.isPlaying;
         this.timer.pause();
     }
 
     resume(): void {
-        this.audioPlayerService.resume();
-        this.isPlaying = this.audioPlayerService.isPlaying;
         this.timer.start();
+        if (this.currentTime < this.duration) {
+           this.audioPlayerService.resume();
+        }
     }
 
     changeTime(time: number): void {
         this.currentTime = this.sliderValue = time;
-        this.currentTimeString = AudioPlayerComponent.parseTime(this.currentTime);
-        this.audioPlayerService.setTime(this.sliderValue);
+        this.currentTimeString = AudioPlayerComponent.parseTime(time);
+        this.audioPlayerService.setTime(time);
     }
     ngOnInit() {
         const slider = document.getElementById('time-slider');
         slider.addEventListener('mousedown', () => {
             this.sliderDragged = true;
         });
-        slider.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', () => {
             this.sliderDragged = false;
         });
         for (const thumb of Array.from(document.getElementsByClassName('mat-slider-thumb'))) {
