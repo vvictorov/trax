@@ -4,10 +4,10 @@
 <div class="col-sm-3" *ngFor="let track of suggestedTracks">
     <md-card class="card-track">
         <md-card-header>
-            <md-card-title class="card-track-title"><h4>{{track.name}}</h4></md-card-title>
+            <md-card-title class="card-track-title"><h4>{{track.name| slice:0:50 }}</h4></md-card-title>
             <md-card-subtitle class="card-track-subtitle">Subtitle</md-card-subtitle>
         </md-card-header>
-        <img md-card-image src="{{track.image.path}}" class="card-track-image"/>
+        <img md-card-image src="{{track.image.path}}" onerror="if (this.src !== 'assets/images/track-images/error.jpg') this.src = 'assets/images/track-images/error.jpg';" class="card-track-image"/>
         <md-card-actions>
             <md-grid-list cols="3" rowHeight="40px">
                 <md-grid-tile>

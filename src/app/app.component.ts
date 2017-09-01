@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AudioPlayerService } from './audio-player.service';
+import { TracksService } from './tracks.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,6 @@ import { AudioPlayerService } from './audio-player.service';
 })
 export class AppComponent {
   title = 'Trax';
-  constructor(private audioPlayerService: AudioPlayerService) {}
+  constructor(private audioPlayerService: AudioPlayerService) {
+  }
 }

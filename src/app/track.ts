@@ -4,7 +4,7 @@ export class TrackImage {
         this.fileName = image.fileName;
     }
     get path(): string {
-        return 'assets/images/track-images/' + this.fileName;
+        return'/assets/images/track-images/' + this.fileName;
     }
 }
 
