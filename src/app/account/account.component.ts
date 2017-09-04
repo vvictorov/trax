@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
 import {UsersService} from '../users.service';
+import {UserResponse} from '../response-interfaces';
 
 @Component({
   selector: 'app-account',
@@ -12,9 +13,8 @@ export class AccountComponent implements OnInit {
   user: User;
   constructor(private usersService: UsersService) { }
   ngOnInit() {
-    const user = new User(1, 'hey');
-    this.usersService.getAccountInfo(user)
-        .then(data => {
+    this.usersService.getAccountInfo(1)
+        .subscribe(data => {
           this.user = new User(data.id, data.name, data.email);
         });
   }
