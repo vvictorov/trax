@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AudioPlayerService } from './audio-player.service';
-import { TracksService } from './tracks.service';
+import { AudioPlayerService } from './services/audio-player.service';
+import { TracksService } from './services/tracks.service';
 
 @Component({
   selector: 'app-root',
