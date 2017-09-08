@@ -1,7 +1,7 @@
 <div class="player-container" [@openState]="openState">
     <div class="row">
         <div class="col-lg-3 text-center">
-            <img *ngIf="track && track.image" id="track-avatar-img" src="{{track.image.path}}"/>
+            <img *ngIf="track && track.image" id="track-avatar-img" src="{{track.image.url}}"/>
             <h4 id="track-name">{{track?.name}}</h4>
             <h5 id="track-genre">{{track?.genre}}</h5>
         </div>

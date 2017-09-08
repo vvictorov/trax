@@ -6,8 +6,8 @@
 body{
     margin:0;
     padding:0;
-    background-color: #2a2a2a;
-    color: #c4c4c4;
+    background-color: #f8f8f8;
+    color: #5e5e5e;
 }
 
 @keyframes fadeIn{

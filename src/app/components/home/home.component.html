@@ -7,7 +7,7 @@
             <md-card-title class="card-track-title"><h4>{{track.name| slice:0:50 }}</h4></md-card-title>
             <md-card-subtitle class="card-track-subtitle">{{track.user?.name}}</md-card-subtitle>
         </md-card-header>
-        <img md-card-image src="{{track.image.path}}" onerror="if (this.src !== 'assets/images/track-images/error.jpg') this.src = 'assets/images/track-images/error.jpg';" class="card-track-image"/>
+        <img md-card-image src="{{track.image.url}}" class="card-track-image"/>
         <md-card-actions>
             <md-grid-list cols="3" rowHeight="40px">
                 <md-grid-tile>

@@ -13,9 +13,31 @@
 .navbar-nav li a{
     margin:0 20px;
     padding: 15px 15px;
+    color: #c1c1c1;
 }
 
-li .active{
+.navbar-nav li .active{
     color: white;
     border-bottom: 2px solid red;
+}
+
+#userMenu{
+    padding: 15px 30px;
+    margin: 0 50px;
+    cursor: pointer;
+    color: #c1c1c1;
+}
+
+#userMenu:hover{
+    color: #fff;
+}
+
+#userDropdownMenu{
+    margin-right:100px;
+    background-color: #222;
+}
+
+#userDropdownMenu li a{
+    margin:0;
+    padding: 10px;
 }

@@ -1,24 +1,19 @@
-import {User} from "./user";
+import {User} from './user';
 
 export class TrackImage {
     fileName: string;
-    constructor(image) {
-        this.fileName = image.fileName;
-    }
-    get path(): string {
-        // TODO just for testing
-        return'/assets/images/track-images/' + this.fileName;
+    url: string;
+    constructor(url) {
+        this.url = url;
     }
 }
 
 export class TrackAudio {
     fileName: string;
     duration: number;
-    constructor(sound) {
-        this.fileName = sound.fileName;
-    }
-    get path(): string {
-        return 'assets/sounds/' + this.fileName;
+    url: string;
+    constructor(url) {
+        this.url = url;
     }
 }
 

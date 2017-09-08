@@ -17,7 +17,8 @@ export class AudioPlayerService {
     trackPlayed$ = this.trackPlayedSource.asObservable();
     // Track Played
     play(track: Track) {
-        this.audio.src = track.audio.path;
+        this.audio.src = track.audio.url;
+        this.audio.autoplay = false;
         this.audio.onloadeddata = () => {
             this.audio.play();
             this.isPlaying = true;
