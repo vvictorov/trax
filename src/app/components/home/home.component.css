@@ -1,10 +1,16 @@
-.card-track{
+.mat-card{
     display: inline-block;
     margin:20px 0;
+	padding: 12px 24px 24px 24px;
 }
 
-.card-track-title{
-    min-height:40px;
+.mat-card-header{
+	height:80px;
+}
+
+.card-track-title h5{
+    font-weight: 600;
+	color: #272727;
 }
 
 .card-track-subtitle{
@@ -12,5 +18,10 @@
 }
 
 .card-track-image{
-    height:180px;
+    height:140px;
+	margin: 0 -24px 8px -24px;
+}
+
+.mat-card-actions{
+	padding: 0;
 }

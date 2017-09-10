@@ -2,9 +2,9 @@
 <br/>
 <!--<iframe width="300" height="200" src="https://www.youtube.com/embed/mBBeVvtsWsI" frameborder="0" allowfullscreen></iframe>-->
 <div class="col-sm-3" *ngFor="let track of suggestedTracks">
-    <md-card class="card-track">
+    <md-card>
         <md-card-header>
-            <md-card-title class="card-track-title"><h4>{{track.name| slice:0:50 }}</h4></md-card-title>
+            <md-card-title class="card-track-title"><h5>{{track.name| slice:0:45 }}</h5></md-card-title>
             <md-card-subtitle class="card-track-subtitle">{{track.user?.name}}</md-card-subtitle>
         </md-card-header>
         <img md-card-image src="{{track.image.url}}" class="card-track-image"/>

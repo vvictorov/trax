@@ -18,9 +18,11 @@ export class AudioPlayerService {
     // Track Played
     play(track: Track) {
         this.audio.src = track.audio.url;
-        this.audio.autoplay = false;
+        this.audio.autoplay = true;
+		this.audio.muted = true;
         this.audio.onloadeddata = () => {
             this.audio.play();
+			this.audio.muted = false;
             this.isPlaying = true;
             track.audio.duration = this.audio.duration;
             this.trackPlayedSource.next(track);
