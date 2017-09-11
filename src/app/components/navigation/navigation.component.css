@@ -1,13 +1,20 @@
 .navbar{
     border-radius: 0;
 }
-
+@media (min-width: 768px) {
+    .navbar-nav {
+        margin-left: 100px !important;
+    }
+}
 .navbar-brand{
     padding: 15px 40px;
 }
 
 .navbar-nav{
-    margin-left: 100px !important;
+}
+
+.navbar-nav li{
+    text-align: center;
 }
 
 .navbar-nav li a{
@@ -37,7 +44,25 @@
     background-color: #222;
 }
 
+#userDropdownMenu .mat-icon{
+    height: 22px;
+    width: 30px;
+    font-size: 22px;
+    float: left;
+}
+
 #userDropdownMenu li a{
     margin:0;
     padding: 10px;
+}
+
+#userDropdownMenu .active{
+    border: 0;
+}
+#userDropdownMenu li:hover a{
+    color: #222;
+}
+
+.logout-link{
+    cursor:pointer;
 }

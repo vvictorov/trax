@@ -25,7 +25,7 @@ export class TracksService {
     const image = new TrackImage(trackJson.image.url);
     const audio = new TrackAudio(trackJson.audio.url);
     const user = new User(trackJson.user.id, trackJson.user.name);
-    return new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user);
+    return new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user, trackJson.favorite);
   }
 
   castToTracks(tracksJson): Track[] {
@@ -34,7 +34,7 @@ export class TracksService {
       const image = new TrackImage(trackJson.image.url);
       const audio = new TrackAudio(trackJson.audio.url);
       const user = new User(trackJson.user.id, trackJson.user.name);
-      const track = new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user);
+      const track = new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user, trackJson.favorite);
       tracks.push(track);
     }
     return tracks;

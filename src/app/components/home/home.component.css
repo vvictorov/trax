@@ -1,16 +1,25 @@
-.mat-card{
-    display: inline-block;
-    margin:20px 0;
-	padding: 12px 24px 24px 24px;
+#suggested-wrapper {
+
 }
 
-.mat-card-header{
+#suggested-wrapper .mat-card{
+    margin:20px auto;
+	padding: 12px 24px 24px 24px;
+	max-width:280px;
+}
+
+#suggested-wrapper .mat-card-header{
 	height:80px;
 }
 
 .card-track-title h5{
     font-weight: 600;
 	color: #272727;
+}
+
+
+.card-container{
+	display: inline-block;
 }
 
 .card-track-subtitle{
@@ -20,6 +29,7 @@
 .card-track-image{
     height:140px;
 	margin: 0 -24px 8px -24px;
+	width: calc(100% + 48px);
 }
 
 .mat-card-actions{

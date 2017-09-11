@@ -23,17 +23,17 @@
                             <span class="caret"></span>
                         </div>
                         <ul ngbDropdownMenu class="dropdown-menu" id="userDropdownMenu" aria-labelledby="userMenu">
-                            <li><a href="#">Page 1-1</a></li>
-                            <li><a href="#">Page 1-2</a></li>
-                            <li><a href="#">Page 1-3</a></li>
+                            <li><a routerLink="account" routerLinkActive="active"><md-icon>account_circle</md-icon>Account</a></li>
+                            <li><a routerLink="my-tracks" routerLinkActive="active"><md-icon>library_music</md-icon>My Tracks</a></li>
+                            <li><a class="logout-link" (click)="logout()">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
             </ng-template>
             <ng-template #login_register>
-                <ul class="nav navbar-nav navbar-right">
-                    <li *ngIf="!user"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li *ngIf="!user"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <ul *ngIf="!user" class="nav navbar-nav navbar-right">
+                    <li><a routerLink="register" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a routerLink="login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </ng-template>
         </div>

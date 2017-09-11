@@ -24,12 +24,14 @@ export class Track {
     image: TrackImage;
     audio: TrackAudio;
     user: User;
-    constructor(id: number, name: string, genre: string, image: TrackImage, sound: TrackAudio, user: User) {
+    favorite: boolean;
+    constructor(id: number, name: string, genre: string, image: TrackImage, sound: TrackAudio, user: User, favourite: boolean) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.audio = sound;
         this.genre = genre;
         this.user = user;
+        this.favorite = favourite;
     }
 }

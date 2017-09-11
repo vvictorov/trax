@@ -15,27 +15,31 @@ export class AudioPlayerService {
 
     // Observable string streams
     trackPlayed$ = this.trackPlayedSource.asObservable();
+
     // Track Played
     play(track: Track) {
         this.audio.src = track.audio.url;
         this.audio.autoplay = true;
-		this.audio.muted = true;
+        this.audio.muted = true;
         this.audio.onloadeddata = () => {
             this.audio.play();
-			this.audio.muted = false;
+            this.audio.muted = false;
             this.isPlaying = true;
             track.audio.duration = this.audio.duration;
             this.trackPlayedSource.next(track);
         };
     }
+
     pause(): void {
         this.audio.pause();
         this.isPlaying = false;
     }
+
     resume(): void {
         this.audio.play();
         this.isPlaying = true;
     }
+
     setTime(time: number) {
         this.audio.currentTime = time;
     }
