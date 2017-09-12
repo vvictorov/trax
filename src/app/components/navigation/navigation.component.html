@@ -7,7 +7,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="home">{{appTitle}}</a>
+            <a class="navbar-brand" routerLink="home">
+                <img width="124" src="../../../assets/images/logo.png">
+                <span>{{appTitle}}</span>
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="myNav" [ngbCollapse]="isCollapsed">
             <ul class="nav navbar-nav">
@@ -25,7 +28,8 @@
                         <ul ngbDropdownMenu class="dropdown-menu" id="userDropdownMenu" aria-labelledby="userMenu">
                             <li><a routerLink="account" routerLinkActive="active"><md-icon>account_circle</md-icon>Account</a></li>
                             <li><a routerLink="my-tracks" routerLinkActive="active"><md-icon>library_music</md-icon>My Tracks</a></li>
-                            <li><a class="logout-link" (click)="logout()">Logout</a></li>
+                            <li><a routerLink="favorites" routerLinkActive="active"><md-icon>favorite_border</md-icon>Favorites</a></li>
+                            <li><a style="padding-left:12px;" class="logout-link" (click)="logout()">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

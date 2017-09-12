@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { User } from '../models/user';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import {AlertService} from "./alert.service";
+import {AlertService} from './alert.service';
 
 @Injectable()
 export class AuthService {

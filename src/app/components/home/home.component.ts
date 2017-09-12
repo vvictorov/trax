@@ -24,9 +24,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.suggestedTracks = this.TracksService.castToTracks(tracks);
     });
   }
-  playTrack(track: Track) {
-    this.audioPlayerService.play(track);
-  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

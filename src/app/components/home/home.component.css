@@ -1,37 +1,14 @@
 #suggested-wrapper {
-
+	overflow:auto;
 }
-
-#suggested-wrapper .mat-card{
-    margin:20px auto;
-	padding: 12px 24px 24px 24px;
-	max-width:280px;
-}
-
-#suggested-wrapper .mat-card-header{
-	height:80px;
-}
-
-.card-track-title h5{
-    font-weight: 600;
-	color: #272727;
-}
-
-
 .card-container{
 	display: inline-block;
 }
 
-.card-track-subtitle{
-
+h4{
+	padding-left:30px
 }
 
-.card-track-image{
-    height:140px;
-	margin: 0 -24px 8px -24px;
-	width: calc(100% + 48px);
-}
-
-.mat-card-actions{
-	padding: 0;
+hr{
+	margin-bottom: 0;
 }

@@ -28,6 +28,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {customHttpProvider} from './helpers/custom-http';
 import {HttpModule} from '@angular/http';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { TrackComponent } from './components/track/track.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +42,8 @@ import {HttpModule} from '@angular/http';
         AlertComponent,
         LoginComponent,
         RegisterComponent,
+        FavoritesComponent,
+        TrackComponent,
     ],
     imports: [
         BrowserModule,

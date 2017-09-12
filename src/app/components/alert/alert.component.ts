@@ -17,9 +17,10 @@ export class AlertComponent implements OnInit {
         this.alertService.getMessage().subscribe(message => {
             this.message = message;
             if (message) {
+                const errorClass = message.type + '-alert';
                 this.snackBar.open(message.text, null, {
                     duration: 3000,
-                    extraClasses: ['alert', 'error-alert']
+                    extraClasses: ['alert', errorClass]
                 });
             }
         });
