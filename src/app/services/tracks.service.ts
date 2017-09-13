@@ -34,6 +34,15 @@ export class TracksService {
             .catch(this.handleError)
     }
 
+    removeFromFavorites(track): Promise<any> {
+        return this.http.post('/favorites/remove',{id: track.id})
+            .toPromise()
+            .then((response: Response) => {
+                return Promise.resolve({result: 'success', message: response.text()})
+            })
+            .catch(this.handleError)
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

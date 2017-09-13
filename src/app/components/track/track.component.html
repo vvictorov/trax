@@ -1,4 +1,4 @@
-<md-card>
+<md-card [@display]="display">
   <md-card-header>
     <md-card-title class="card-track-title"><h5>{{track.name| slice:0:45 }}</h5></md-card-title>
     <md-card-subtitle class="card-track-subtitle">{{track.user?.name}}</md-card-subtitle>
@@ -10,7 +10,7 @@
         <button md-button (click)="playTrack(track)"><md-icon>play_arrow</md-icon></button>
       </md-grid-tile>
       <md-grid-tile>
-        <button *ngIf="track.favorite" md-button (click)="addToFavorites(track)"><md-icon class="icon-favorite">favorite</md-icon></button>
+        <button *ngIf="track.favorite" md-button (click)="removeFromFavorites(track)"><md-icon class="icon-favorite">favorite</md-icon></button>
         <button *ngIf="!track.favorite" md-button (click)="addToFavorites(track)"><md-icon>favorite_border</md-icon></button>
       </md-grid-tile>
       <md-grid-tile>
