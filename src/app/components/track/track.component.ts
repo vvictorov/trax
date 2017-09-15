@@ -3,26 +3,11 @@ import {Track} from '../../models/track';
 import {AudioPlayerService} from '../../services/audio-player.service';
 import {TracksService} from '../../services/tracks.service';
 import {AlertService} from '../../services/alert.service';
-import {trigger, state, style, animate, transition} from '@angular/animations';
 
 @Component({
     selector: 'app-track',
     templateUrl: './track.component.html',
-    styleUrls: ['./track.component.css'],
-    animations: [
-        trigger('display', [
-            state('show', style({
-                opacity: 1,
-                display: 'block'
-            })),
-            state('hide', style({
-                opacity: 0,
-                display: 'none'
-            })),
-            transition('show => hide', animate('200ms ease-out')),
-            transition('hide => show', animate('200ms ease-in')),
-        ])
-    ]
+    styleUrls: ['./track.component.css']
 })
 export class TrackComponent implements OnInit {
 

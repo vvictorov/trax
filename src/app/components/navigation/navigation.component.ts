@@ -18,7 +18,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
     constructor(private authService: AuthService, private router: Router) {
         this.authActionSubscription = this.authService.getAuthAction().subscribe(action => {
             this.user = this.authService.getUser();
-            console.log(this.user);
         });
     }
 

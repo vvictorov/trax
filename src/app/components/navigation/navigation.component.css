@@ -9,6 +9,7 @@
 
 nav{
     margin-bottom:0 !important;
+    z-index: 1;
 }
 
 .navbar-brand{
@@ -17,6 +18,7 @@ nav{
 
 .navbar-brand img{
     margin-top: -10px;
+    z-index: 9999;
 }
 
 .navbar-brand span{
@@ -74,6 +76,7 @@ nav{
 #userDropdownMenu li a{
     margin:0;
     padding: 10px;
+    text-align: left;
 }
 
 #userDropdownMenu .active{

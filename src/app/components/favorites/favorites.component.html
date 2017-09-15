@@ -1,5 +1,8 @@
-<div id="favorites-wrapper">
-  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card-container" *ngFor="let track of favorites">
+<div *ngIf="!favorites || favorites?.length > 0; else no_favorites" id="favorites-wrapper">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card-container" *ngFor="let track of favorites"  [@display]="track.favorite ? 'show' : 'hide'">
     <app-track [track]="track"></app-track>
   </div>
 </div>
+<ng-template #no_favorites>
+  <h3>You don't have any favorites yet!</h3>
+</ng-template>
