@@ -68,3 +68,44 @@ h1,h2,h3,h4,h5,h6{
     height: 64px;
     width: 64px;
 }
+
+#volume-container{
+    display: inline-block;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+#volume-knob{
+    position: absolute;
+    top:27px;
+    right: 90px;
+    display: none;
+}
+
+#volume-container:hover #volume-knob{
+    display: block;
+}
+
+#volume-container:hover #volume-icon{
+    opacity: 0;
+}
+
+.control{
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.player-controls{
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

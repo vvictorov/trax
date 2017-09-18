@@ -145,6 +145,11 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
         this.currentTimeString = AudioPlayerComponent.parseTime(time);
         this.audioPlayerService.setTime(time);
     }
+    onVolumeChanged(value: number): void {
+        if (value >= 0 && value <= 100) {
+            this.audioPlayerService.setVolume(value);
+        }
+    }
     ngOnInit() {
         const slider = document.getElementById('time-slider');
         slider.addEventListener('mousedown', () => {

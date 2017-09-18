@@ -43,4 +43,8 @@ export class AudioPlayerService {
     setTime(time: number) {
         this.audio.currentTime = time;
     }
+
+    setVolume(volume: number) {
+        this.audio.volume = volume / 100;
+    }
 }
