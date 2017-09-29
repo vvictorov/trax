@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './modules/angular-material.module';
@@ -16,7 +16,7 @@ import {AppRoutingModule} from './app.routing';
 import {HomeComponent} from './components/home/home.component';
 import {PopularComponent} from './components/popular/popular.component';
 import {MyTracksComponent} from './components/my-tracks/my-tracks.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TracksService} from './services/tracks.service';
 import {AccountComponent} from './components/account/account.component';
 import {UsersService} from './services/users.service';
@@ -30,6 +30,9 @@ import {customHttpProvider} from './helpers/custom-http';
 import {HttpModule} from '@angular/http';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { TrackComponent } from './components/track/track.component';
+import { SearchTracksComponent } from './components/search-tracks/search-tracks.component';
+import {MaterialModule} from '@angular/material';
+import {Ng2CompleterModule} from 'ng2-completer';
 
 @NgModule({
     declarations: [
@@ -44,13 +47,17 @@ import { TrackComponent } from './components/track/track.component';
         RegisterComponent,
         FavoritesComponent,
         TrackComponent,
+        SearchTracksComponent,
     ],
     imports: [
         BrowserModule,
         NgbModule.forRoot(),
         BrowserAnimationsModule,
         FormsModule,
-        AngularMaterialModule,
+        // AngularMaterialModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        Ng2CompleterModule,
         AppRoutingModule,
         AudioPlayerModule,
         HttpClientModule,

@@ -16,6 +16,9 @@
             <ul class="nav navbar-nav">
                 <li><a routerLink="home" routerLinkActive="active">Home</a></li>
                 <li><a routerLink="popular" routerLinkActive="active">Popular</a></li>
+                <li>
+                    <app-search-tracks></app-search-tracks>
+                </li>
             </ul>
             <div *ngIf="user; then user_menu else login_register"></div>
             <ng-template #user_menu>
