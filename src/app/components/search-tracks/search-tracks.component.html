@@ -1,1 +1,4 @@
-<ng2-completer [(ngModel)]="searchText" [datasource]="dataService" [minSearchLength]="4"></ng2-completer>
+<div class="form-group has-feedback">
+    <ng2-completer [(ngModel)]="searchText" [datasource]="dataService" [minSearchLength]="4" [placeholder]="'Search tracks'"></ng2-completer>
+    <md-icon class="form-control-feedback search-icon">search</md-icon>
+</div>
