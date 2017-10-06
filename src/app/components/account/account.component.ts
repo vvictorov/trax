@@ -10,7 +10,7 @@ import {AuthService} from '../../services/auth.service';
 })
 export class AccountComponent implements OnInit {
 
-  private user: User;
+  protected user: User;
   constructor(private usersService: UsersService, private authService: AuthService) {
     if (this.authService.check()) {
         this.user = this.authService.getUser();

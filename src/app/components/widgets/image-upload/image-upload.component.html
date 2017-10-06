@@ -1,0 +1,7 @@
+<div ng2FileDrop class="custom-component-drop-zone"
+     (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+     (ng2FileDropFileAccepted)="dragFileAccepted($event)" (ng2FileDropFileRejected)="dragFileRejected($event)">
+    <img src="{{currentProfileImage}}" class="img-responsive"/>
+</div>
+<br/>
+<button type="button" class="btn btn-default">Change picture</button>

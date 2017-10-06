@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './modules/angular-material.module';
 import {AudioPlayerModule} from './modules/audio-player.module';
 import {HttpClientModule} from '@angular/common/http';
+import { NgUploaderModule } from 'ngx-uploader';
 
 
 import {AudioPlayerService} from './services/audio-player.service';
@@ -31,8 +32,9 @@ import {HttpModule} from '@angular/http';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { TrackComponent } from './components/track/track.component';
 import { SearchTracksComponent } from './components/search-tracks/search-tracks.component';
-import {MaterialModule} from '@angular/material';
+import { Ng2FileDropModule }  from 'ng2-file-drop';
 import {Ng2CompleterModule} from 'ng2-completer';
+import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
 
 @NgModule({
     declarations: [
@@ -48,15 +50,17 @@ import {Ng2CompleterModule} from 'ng2-completer';
         FavoritesComponent,
         TrackComponent,
         SearchTracksComponent,
+        ImageUploadComponent,
     ],
     imports: [
         BrowserModule,
         NgbModule.forRoot(),
         BrowserAnimationsModule,
         FormsModule,
-        // AngularMaterialModule,
+        Ng2FileDropModule,
+        NgUploaderModule,
+        AngularMaterialModule,
         ReactiveFormsModule,
-        MaterialModule,
         Ng2CompleterModule,
         AppRoutingModule,
         AudioPlayerModule,
