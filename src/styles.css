@@ -152,7 +152,16 @@ h1,h2,h3,h4,h5,h6{
     background-color:#0d0d0d;
 }*/
 
-nav .completer-holder{
+nav .completer-row{
+    width:100% !important;
+    border: 1px solid #fff;
+}
+
+nav .completer-selected-row{
+    background-color: #f9f9f8 !important;
+    border: 1px solid #cbcbcb;
+    color: #000 !important;
+    font-weight: 500;
 }
 
 nav .completer-input{
@@ -163,7 +172,21 @@ nav .completer-input{
     border:2px solid #222;
 }
 
+nav .completer-image-holder{
+    width: 50px !important;
+}
+
 nav .completer-image{
     width: 50px;
     height: 50px;
+}
+
+nav .completer-dropdown{
+    width:400px !important;
+}
+
+nav .completer-item-text-image{
+    float: left !important;
+    margin: 0 20px;
+    width: 70% !important;
 }

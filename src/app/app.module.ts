@@ -1,11 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './modules/angular-material.module';
 import {AudioPlayerModule} from './modules/audio-player.module';
 import {HttpClientModule} from '@angular/common/http';
-import { NgUploaderModule } from 'ngx-uploader';
 
 
 import {AudioPlayerService} from './services/audio-player.service';
@@ -31,10 +30,10 @@ import {customHttpProvider} from './helpers/custom-http';
 import {HttpModule} from '@angular/http';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { TrackComponent } from './components/track/track.component';
-import { SearchTracksComponent } from './components/search-tracks/search-tracks.component';
-import { Ng2FileDropModule }  from 'ng2-file-drop';
+import { SearchTracksComponent } from './components/widgets/search-tracks/search-tracks.component';
 import {Ng2CompleterModule} from 'ng2-completer';
 import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
+import {FancyImageUploaderModule} from 'ng2-fancy-image-uploader';
 
 @NgModule({
     declarations: [
@@ -57,11 +56,10 @@ import { ImageUploadComponent } from './components/widgets/image-upload/image-up
         NgbModule.forRoot(),
         BrowserAnimationsModule,
         FormsModule,
-        Ng2FileDropModule,
-        NgUploaderModule,
         AngularMaterialModule,
         ReactiveFormsModule,
         Ng2CompleterModule,
+        FancyImageUploaderModule,
         AppRoutingModule,
         AudioPlayerModule,
         HttpClientModule,

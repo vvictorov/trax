@@ -17,7 +17,7 @@ export class AuthService {
         const user = localStorage.getItem('currentUser');
         if (user) {
             const data = JSON.parse(user);
-            this.user = new User(data.id, data.name, data.email);
+            this.user = new User(data.id, data.name, data.email, data.imageUrl);
         }
     }
 

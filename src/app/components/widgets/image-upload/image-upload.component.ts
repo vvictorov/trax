@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Ng2FileDropAcceptedFile, Ng2FileDropRejectedFile} from 'ng2-file-drop';
+import {FancyImageUploaderOptions, UploadedFile} from 'ng2-fancy-image-uploader';
+import {AppConfig} from '../../../app.config';
+import {User} from '../../../models/user';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
     selector: 'app-image-upload',
@@ -8,40 +11,27 @@ import {Ng2FileDropAcceptedFile, Ng2FileDropRejectedFile} from 'ng2-file-drop';
 })
 export class ImageUploadComponent implements OnInit {
 
-    currentProfileImage: string;
-    imageShown: boolean;
+    user: User;
+    constructor(private authService: AuthService) {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        this.options.authToken = user.token;
+        this.user = this.authService.getUser();
+    }
 
-    constructor() {
+    options: FancyImageUploaderOptions = {
+
+        thumbnailHeight: 150,
+        thumbnailWidth: 150,
+        uploadUrl: AppConfig.API_URL + '/account/uploadPicture',
+        authTokenPrefix: 'Bearer ',
+        allowedImageTypes: ['image/png', 'image/jpeg', 'image/gif'],
+        maxImageSize: 3
+    };
+
+    onUpload(file: UploadedFile) {
     }
 
     ngOnInit() {
+
     }
-
-
-    // File being dragged has moved into the drop region
-    private dragFileOverStart() {
-    }
-
-    // File being dragged has moved out of the drop region
-    private dragFileOverEnd() {
-    }
-
-    // File being dragged has been dropped and is valid
-    private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
-        // Load the image in
-        const fileReader = new FileReader();
-        fileReader.onload = () => {
-            // Set and show the image
-            this.currentProfileImage = fileReader.result;
-            this.imageShown = true;
-        };
-
-        // Read in the file
-        fileReader.readAsDataURL(acceptedFile.file);
-    }
-
-    // File being dragged has been dropped and has been rejected
-    private dragFileRejected(rejectedFile: Ng2FileDropRejectedFile) {
-    }
-
 }
