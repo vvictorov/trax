@@ -33,7 +33,7 @@ import { TrackComponent } from './components/track/track.component';
 import { SearchTracksComponent } from './components/widgets/search-tracks/search-tracks.component';
 import {Ng2CompleterModule} from 'ng2-completer';
 import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
-import {FancyImageUploaderModule} from 'ng2-fancy-image-uploader';
+import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploader/fancy-image-uploader.module';
 
 @NgModule({
     declarations: [

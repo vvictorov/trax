@@ -2,7 +2,7 @@ import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {User} from '../../models/user';
 import {AuthService} from '../../services/auth.service';
 import {Subscription} from 'rxjs/Subscription';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-navigation',

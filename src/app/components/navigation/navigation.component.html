@@ -25,6 +25,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" ngbDropdown>
                         <div ngbDropdownToggle id="userMenu" href="#">
+                            <div *ngIf="user.imageUrl">
+                                <img class="user-avatar img-responsive" src="{{user.imageUrl}}"/>
+                            </div>
                             {{user.name}}
                             <span class="caret"></span>
                         </div>

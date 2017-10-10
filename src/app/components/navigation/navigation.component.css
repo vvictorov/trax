@@ -90,3 +90,12 @@ nav{
     cursor:pointer;
 }
 
+.user-avatar{
+    height:40px;
+    width:40px;
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    border-radius: 50%;
+}
+
