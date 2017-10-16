@@ -43,3 +43,6 @@ Thumbs.db
 
 # Config file
 /src/app/app.config.ts
+
+# Angular CLI config file
+.angular-cli.json

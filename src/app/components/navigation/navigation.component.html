@@ -25,21 +25,21 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" ngbDropdown>
                         <div ngbDropdownToggle id="userMenu" href="#">
-                            <div *ngIf="user.imageUrl">
-                                <img class="user-avatar img-responsive" src="{{user.imageUrl}}"/>
+                            <div *ngIf="user.imageUrl" class="user-avatar-container">
+                                <img class="user-avatar-img img-responsive" src="{{user.imageUrl}}"/>
                             </div>
                             {{user.name}}
                             <span class="caret"></span>
                         </div>
                         <ul ngbDropdownMenu class="dropdown-menu" id="userDropdownMenu" aria-labelledby="userMenu">
                             <li><a routerLink="account" routerLinkActive="active">
-                                <md-icon>account_circle</md-icon>
+                                <mat-icon>account_circle</mat-icon>
                                 Account</a></li>
                             <li><a routerLink="my-tracks" routerLinkActive="active">
-                                <md-icon>library_music</md-icon>
+                                <mat-icon>library_music</mat-icon>
                                 My Tracks</a></li>
                             <li><a routerLink="favorites" routerLinkActive="active">
-                                <md-icon>favorite_border</md-icon>
+                                <mat-icon>favorite_border</mat-icon>
                                 Favorites</a></li>
                             <li><a style="padding-left:12px;" class="logout-link" (click)="logout()">Logout</a></li>
                         </ul>

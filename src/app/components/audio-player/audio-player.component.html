@@ -8,7 +8,7 @@
         <div class="col-lg-6 text-center">
             <div class="timeline">
                 <div class="current-time">{{currentTimeString}}</div>
-                <md-slider
+                <mat-slider
                     id="time-slider"
                     (mouseover)='timeSliderHover(false)'
                     (mouseleave)='timeSliderHover(true)'
@@ -17,18 +17,18 @@
                     [value]="sliderValue"
                     (change)="changeTime($event.value)"
                     >
-                </md-slider>
+                </mat-slider>
                 <div class="total-time">{{track ? durationString : '0:00'}}</div>
             </div>
         </div>
         <div class="col-lg-3 text-center">
             <div class="player-controls">
-                <button type="button" class="control"><md-icon class="control">skip_previous</md-icon></button>
-                <button type="button" class="control" *ngIf="isPlaying" (click)="pause()"><md-icon class="control">pause</md-icon></button>
-                <button type="button" class="control" *ngIf="!isPlaying" (click)="resume()"><md-icon class="control">play_arrow</md-icon></button>
-                <button type="button" class="control"><md-icon class="control">skip_next</md-icon></button>
+                <button type="button" class="control"><mat-icon class="control">skip_previous</mat-icon></button>
+                <button type="button" class="control" *ngIf="isPlaying" (click)="pause()"><mat-icon class="control">pause</mat-icon></button>
+                <button type="button" class="control" *ngIf="!isPlaying" (click)="resume()"><mat-icon class="control">play_arrow</mat-icon></button>
+                <button type="button" class="control"><mat-icon class="control">skip_next</mat-icon></button>
                 <div id="volume-container">
-                    <button type="button" class="control"><md-icon class="control" id="volume-icon">volume_up</md-icon></button>
+                    <button type="button" class="control"><mat-icon class="control" id="volume-icon">volume_up</mat-icon></button>
                     <app-knob-slider
                             id="volume-knob"
                             [width]="40"

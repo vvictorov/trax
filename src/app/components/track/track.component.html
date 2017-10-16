@@ -1,21 +1,21 @@
-<md-card>
-  <md-card-header>
-    <md-card-title class="card-track-title"><h5>{{track.name| slice:0:45 }}</h5></md-card-title>
-    <md-card-subtitle class="card-track-subtitle">{{track.user?.name}}</md-card-subtitle>
-  </md-card-header>
-  <img md-card-image src="{{track.image.url}}" class="card-track-image"/>
-  <md-card-actions>
-    <md-grid-list cols="3" rowHeight="40px">
-      <md-grid-tile>
-        <button md-button (click)="playTrack(track)"><md-icon>play_arrow</md-icon></button>
-      </md-grid-tile>
-      <md-grid-tile>
-        <button *ngIf="track.favorite" md-button (click)="removeFromFavorites(track)"><md-icon class="icon-favorite">favorite</md-icon></button>
-        <button *ngIf="!track.favorite" md-button (click)="addToFavorites(track)"><md-icon>favorite_border</md-icon></button>
-      </md-grid-tile>
-      <md-grid-tile>
-        <button md-button>SHARE</button>
-      </md-grid-tile>
-    </md-grid-list>
-  </md-card-actions>
-</md-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="card-track-title"><h5>{{track.name| slice:0:45 }}</h5></mat-card-title>
+    <mat-card-subtitle class="card-track-subtitle">{{track.user?.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{track.image.url}}" class="card-track-image"/>
+  <mat-card-actions>
+    <mat-grid-list cols="3" rowHeight="40px">
+      <mat-grid-tile>
+        <button mat-button (click)="playTrack(track)"><mat-icon>play_arrow</mat-icon></button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button *ngIf="track.favorite" mat-button (click)="removeFromFavorites(track)"><mat-icon class="icon-favorite">favorite</mat-icon></button>
+        <button *ngIf="!track.favorite" mat-button (click)="addToFavorites(track)"><mat-icon>favorite_border</mat-icon></button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-button>SHARE</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-actions>
+</mat-card>

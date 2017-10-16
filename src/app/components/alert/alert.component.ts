@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AlertService } from '../../services/alert.service';
-import {MdSnackBar} from "@angular/material";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
     moduleId: module.id,
@@ -12,7 +12,7 @@ import {MdSnackBar} from "@angular/material";
 export class AlertComponent implements OnInit {
     message: any;
 
-    constructor(private alertService: AlertService, private snackBar: MdSnackBar ) { }
+    constructor(private alertService: AlertService, private snackBar: MatSnackBar ) { }
     ngOnInit() {
         this.alertService.getMessage().subscribe(message => {
             this.message = message;
