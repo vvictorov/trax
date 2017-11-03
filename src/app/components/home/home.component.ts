@@ -13,21 +13,23 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class HomeComponent implements OnInit, OnDestroy {
     suggestedTracks: Track[];
-    subscription: Subscription;
+    trackPlayedSubscription: Subscription;
+    suggestedTracksSubscription: Subscription;
 
     constructor(private TracksService: TracksService, private audioPlayerService: AudioPlayerService) {
-        this.subscription = audioPlayerService.trackPlayed$.subscribe(track => {
+        this.trackPlayedSubscription = audioPlayerService.trackPlayed$.subscribe(track => {
             // TODO
+        });
+        this.suggestedTracksSubscription = this.TracksService.getSuggestedTracks().subscribe(tracks => {
+            this.suggestedTracks = tracks;
         });
     }
 
     ngOnInit() {
-        this.TracksService.getSuggestedTracks().then(tracks => {
-            this.suggestedTracks = this.TracksService.castToTracks(tracks);
-        });
     }
 
     ngOnDestroy() {
-        this.subscription.unsubscribe();
+        this.trackPlayedSubscription.unsubscribe();
+        this.suggestedTracksSubscription.unsubscribe();
     }
 }

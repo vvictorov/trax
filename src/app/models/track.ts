@@ -20,14 +20,16 @@ export class TrackAudio {
 export class Track {
     id: number;
     name: string;
+    slug: string;
     genre: string;
     image: TrackImage;
     audio: TrackAudio;
     user: User;
     favorite: boolean;
-    constructor(id: number, name: string, genre: string, image: TrackImage, sound: TrackAudio, user: User, favourite: boolean) {
+    constructor(id: number, name: string, slug: string, genre: string, image: TrackImage, sound: TrackAudio, user: User, favourite: boolean) {
         this.id = id;
         this.name = name;
+        this.slug = slug;
         this.image = image;
         this.audio = sound;
         this.genre = genre;

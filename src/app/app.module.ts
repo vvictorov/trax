@@ -34,6 +34,7 @@ import { SearchTracksComponent } from './components/widgets/search-tracks/search
 import {Ng2CompleterModule} from 'ng2-completer';
 import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
 import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploader/fancy-image-uploader.module';
+import { ViewTrackComponent } from './components/view-track/view-track.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploade
         TrackComponent,
         SearchTracksComponent,
         ImageUploadComponent,
+        ViewTrackComponent,
     ],
     imports: [
         BrowserModule,

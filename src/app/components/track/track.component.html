@@ -1,21 +1,31 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title class="card-track-title"><h5>{{track.name| slice:0:45 }}</h5></mat-card-title>
-    <mat-card-subtitle class="card-track-subtitle">{{track.user?.name}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{track.image.url}}" class="card-track-image"/>
-  <mat-card-actions>
-    <mat-grid-list cols="3" rowHeight="40px">
-      <mat-grid-tile>
-        <button mat-button (click)="playTrack(track)"><mat-icon>play_arrow</mat-icon></button>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <button *ngIf="track.favorite" mat-button (click)="removeFromFavorites(track)"><mat-icon class="icon-favorite">favorite</mat-icon></button>
-        <button *ngIf="!track.favorite" mat-button (click)="addToFavorites(track)"><mat-icon>favorite_border</mat-icon></button>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <button mat-button>SHARE</button>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-card-actions>
+    <mat-card-header>
+        <mat-card-title class="card-track-title">
+            <a class="link" [routerLink]="['/track', track.slug]"><h5>{{track.name| slice:0:45 }}</h5></a>
+        </mat-card-title>
+        <mat-card-subtitle class="card-track-subtitle"><a class="link">{{track.user?.name}}</a></mat-card-subtitle>
+    </mat-card-header>
+    <a class="link" [routerLink]="['/track', track.slug]">
+        <img mat-card-image src="{{track.image.url}}" class="card-track-image"/>
+    </a>
+    <mat-card-actions>
+        <mat-grid-list cols="3" rowHeight="40px">
+            <mat-grid-tile>
+                <button mat-button (click)="playTrack(track)">
+                    <mat-icon>play_arrow</mat-icon>
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button *ngIf="track.favorite" mat-button (click)="removeFromFavorites(track)">
+                    <mat-icon class="icon-favorite">favorite</mat-icon>
+                </button>
+                <button *ngIf="!track.favorite" mat-button (click)="addToFavorites(track)">
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-button>SHARE</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-actions>
 </mat-card>
