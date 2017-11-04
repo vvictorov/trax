@@ -189,3 +189,13 @@ nav .completer-item-text-image{
     margin: 0 20px;
     width: 70% !important;
 }
+
+.img-upload-canvas{
+    position: relative;
+    display: none;
+}
+
+.img-upload-canvas-init{
+    display: block;
+    top: -20px;
+}
