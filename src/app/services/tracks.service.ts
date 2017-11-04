@@ -5,24 +5,26 @@ import 'rxjs/add/operator/toPromise';
 import {AppConfig} from '../app.config';
 import {User} from "../models/user";
 import {AuthService} from "./auth.service";
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class TracksService {
     constructor(private http: Http, private authService: AuthService) {
     }
 
-    getSuggestedTracks(): Promise<Track[]> {
+    getSuggestedTracks(): Observable<Track[]> {
         return this.http.get('/suggested')
-            .toPromise()
-            .then(response => response.json() as Track[])
-            .catch(this.handleError);
+            .map(response => this.castToTracks(response.json()))
     }
 
-    getFavorites(): Promise<Track[]> {
+    getTrack(slug: string): Observable<Track> {
+        return this.http.get('/tracks/' + slug)
+            .map((response) => this.castToTrack(response.json()));
+    }
+
+    getFavorites(): Observable<Track[]> {
         return this.http.get('/favorites')
-            .toPromise()
-            .then(response => response.json() as Track[])
-            .catch(this.handleError);
+            .map(response => this.castToTracks(response.json()))
     }
 
     addToFavorites(track): Promise<any> {
@@ -31,7 +33,6 @@ export class TracksService {
             .then((response: Response) => {
                 return Promise.resolve({result: 'success', message: response.text()})
             })
-            .catch(this.handleError)
     }
 
     removeFromFavorites(track): Promise<any> {
@@ -40,19 +41,13 @@ export class TracksService {
             .then((response: Response) => {
                 return Promise.resolve({result: 'success', message: response.text()})
             })
-            .catch(this.handleError)
-    }
-
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
     }
 
     castToTrack(trackJson): Track {
         const image = new TrackImage(trackJson.image.url);
         const audio = new TrackAudio(trackJson.audio.url);
         const user = new User(trackJson.user.id, trackJson.user.name);
-        return new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user, trackJson.favorite);
+        return new Track(trackJson.id, trackJson.name, trackJson.slug, trackJson.genre, image, audio, user, trackJson.favorite);
     }
 
     castToTracks(tracksJson): Track[] {
@@ -61,7 +56,7 @@ export class TracksService {
             const image = new TrackImage(trackJson.image.url);
             const audio = new TrackAudio(trackJson.audio.url);
             const user = new User(trackJson.user.id, trackJson.user.name);
-            const track = new Track(trackJson.id, trackJson.name, trackJson.genre, image, audio, user, trackJson.favorite);
+            const track = new Track(trackJson.id, trackJson.name, trackJson.slug, trackJson.genre, image, audio, user, trackJson.favorite);
             tracks.push(track);
         }
         return tracks;

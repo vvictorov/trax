@@ -35,6 +35,7 @@ import {Ng2CompleterModule} from 'ng2-completer';
 import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
 import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploader/fancy-image-uploader.module';
 import {ImageCropperComponent} from 'ng2-img-cropper';
+import { ViewTrackComponent } from './components/view-track/view-track.component';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import {ImageCropperComponent} from 'ng2-img-cropper';
         TrackComponent,
         SearchTracksComponent,
         ImageUploadComponent,
-        ImageCropperComponent
+        ImageCropperComponent,
+        ViewTrackComponent,
     ],
     imports: [
         BrowserModule,

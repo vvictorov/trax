@@ -1,28 +1,38 @@
-.mat-card{
-    margin:20px auto;
+.mat-card {
+    margin: 20px auto;
     padding: 12px 24px 24px 24px;
-    max-width:280px;
+    max-width: 300px;
 }
 
-.mat-card-header{
-    height:80px;
+.mat-card-header {
+    height: 80px;
 }
 
-.card-track-title h5{
+.card-track-title h5 {
     font-weight: 600;
     color: #272727;
 }
 
-.card-track-subtitle{
-
+.card-track-subtitle {
+    text-align: center;
 }
 
-.card-track-image{
-    height:140px;
+.card-track-image {
+    height: 140px;
     margin: 0 -24px 8px -24px;
     width: calc(100% + 48px);
 }
 
-.mat-card-actions{
+.mat-card-image:first-child {
+    margin-top: 0;
+}
+
+.mat-card-actions {
     padding: 0;
+}
+
+.link {
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
 }
