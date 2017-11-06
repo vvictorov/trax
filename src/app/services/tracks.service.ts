@@ -15,7 +15,6 @@ export class TracksService {
 
     getSuggestedTracks(): Observable<Track[]> {
         return this.http.get('/suggested')
-            .delay(500000)
             .map(response => this.castToTracks(response.json()))
     }
 

@@ -7,7 +7,7 @@
             <h4>Tracks you might like</h4>
             <hr>
             <!--<iframe width="300" height="200" src="https://www.youtube.com/embed/mBBeVvtsWsI" frameborder="0" allowfullscreen></iframe>-->
-            <div id="suggested-wrapper" [ngBusy]="{busy: suggestedTracksSubscription, message: 'Loading', backdrop: false, delay: 500}">
+            <div id="suggested-wrapper" [ngBusy]="{busy: suggestedTracksSubscription, message: '', backdrop: false, delay: 500}">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card-container" *ngFor="let track of suggestedTracks">
                     <app-track [track]="track"></app-track>
                 </div>

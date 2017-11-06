@@ -71,6 +71,9 @@ h1,h2,h3,h4,h5,h6{
 
 #volume-container{
     display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: relative;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -79,15 +82,24 @@ h1,h2,h3,h4,h5,h6{
     cursor: pointer;
 }
 
+#volume-button{
+    position: relative;
+    margin:0;
+}
+
+#volume-icon{
+    margin: 8px;
+}
+
 #volume-knob{
     position: absolute;
-    top:27px;
-    right: 90px;
-    display: none;
+    left: 0;
+    top: 0;
+    visibility: hidden;
 }
 
 #volume-container:hover #volume-knob{
-    display: block;
+    visibility: visible;
 }
 
 #volume-container:hover #volume-icon{
