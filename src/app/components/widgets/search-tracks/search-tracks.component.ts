@@ -8,8 +8,8 @@ import {CompleterData, CompleterService} from 'ng2-completer';
 })
 export class SearchTracksComponent implements OnInit {
 
-    protected searchText: string;
-    protected dataService: CompleterData;
+    public searchText: string;
+    public dataService: CompleterData;
 
     constructor(private completerService: CompleterService) {
         this.dataService = completerService

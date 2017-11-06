@@ -35,7 +35,7 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
     public openState = 'closed';
     public track: Track;
     public isPlaying = false;
-    protected duration: number;
+    public duration: number;
     public durationString: string;
     private currentTime: number;
     public currentTimeString: string;

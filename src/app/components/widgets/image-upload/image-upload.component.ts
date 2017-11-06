@@ -1,7 +1,4 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {AppConfig} from '../../../app.config';
-import {FancyImageUploaderOptions} from '../fancy-image-uploader/interfaces';
-import {UploadedFile} from '../fancy-image-uploader/uploaded-file';
 import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
 @Component({

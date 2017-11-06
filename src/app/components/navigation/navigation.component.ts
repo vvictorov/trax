@@ -11,18 +11,17 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
 
-    protected user: User;
+    public user: User;
     private authActionSubscription: Subscription;
     private returnUrl;
+    @Input('title') appTitle: string;
+    public isCollapsed = true;
 
     constructor(private authService: AuthService, private router: Router) {
         this.authActionSubscription = this.authService.getAuthAction().subscribe(action => {
             this.user = this.authService.getUser();
         });
     }
-
-    @Input('title') appTitle: string;
-    public isCollapsed = true;
 
     public logout() {
         this.authService.logout();

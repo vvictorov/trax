@@ -12,8 +12,8 @@ import {Subscription} from 'rxjs/Subscription';
 export class AccountComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
-    protected user: User;
-    protected accountData;
+    public user: User;
+    public accountData;
 
     constructor(private usersService: UsersService, private authService: AuthService) {
         if (this.authService.check()) {

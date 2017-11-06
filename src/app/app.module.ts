@@ -34,7 +34,7 @@ import { SearchTracksComponent } from './components/widgets/search-tracks/search
 import {Ng2CompleterModule} from 'ng2-completer';
 import { ImageUploadComponent } from './components/widgets/image-upload/image-upload.component';
 import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploader/fancy-image-uploader.module';
-import {ImageCropperComponent} from 'ng2-img-cropper';
+import {ImageCropperComponent, ImageCropperModule} from 'ng2-img-cropper';
 import { ViewTrackComponent } from './components/view-track/view-track.component';
 
 @NgModule({
@@ -52,7 +52,6 @@ import { ViewTrackComponent } from './components/view-track/view-track.component
         TrackComponent,
         SearchTracksComponent,
         ImageUploadComponent,
-        ImageCropperComponent,
         ViewTrackComponent,
     ],
     imports: [
@@ -67,7 +66,8 @@ import { ViewTrackComponent } from './components/view-track/view-track.component
         AppRoutingModule,
         AudioPlayerModule,
         HttpClientModule,
-        HttpModule
+        HttpModule,
+        ImageCropperModule,
     ],
     exports: [
         AppComponent
