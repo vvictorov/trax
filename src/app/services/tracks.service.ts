@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Track, TrackImage, TrackAudio} from '../models/track';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/delay';
 import {AppConfig} from '../app.config';
 import {User} from "../models/user";
 import {AuthService} from "./auth.service";
@@ -14,6 +15,7 @@ export class TracksService {
 
     getSuggestedTracks(): Observable<Track[]> {
         return this.http.get('/suggested')
+            .delay(500000)
             .map(response => this.castToTracks(response.json()))
     }
 

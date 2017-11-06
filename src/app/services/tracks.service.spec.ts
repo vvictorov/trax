@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { TracksService } from './suggested-tracks.service';
+import { TracksService } from './tracks.service';
 
 describe('TracksService', () => {
   beforeEach(() => {

@@ -36,6 +36,7 @@ import { ImageUploadComponent } from './components/widgets/image-upload/image-up
 import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploader/fancy-image-uploader.module';
 import {ImageCropperComponent, ImageCropperModule} from 'ng2-img-cropper';
 import { ViewTrackComponent } from './components/view-track/view-track.component';
+import {BusyModule} from 'angular2-busy';
 
 @NgModule({
     declarations: [
@@ -58,6 +59,7 @@ import { ViewTrackComponent } from './components/view-track/view-track.component
         BrowserModule,
         NgbModule.forRoot(),
         BrowserAnimationsModule,
+        BusyModule,
         FormsModule,
         AngularMaterialModule,
         ReactiveFormsModule,
