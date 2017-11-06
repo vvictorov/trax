@@ -153,42 +153,62 @@ h1,h2,h3,h4,h5,h6{
     background-color:#0d0d0d;
 }*/
 
-nav .completer-row{
+#top-nav .completer-row{
     width:100% !important;
     border: 1px solid #fff;
 }
 
-nav .completer-selected-row{
+#top-nav .completer-selected-row{
     background-color: #f9f9f8 !important;
     border: 1px solid #cbcbcb;
     color: #000 !important;
     font-weight: 500;
 }
 
-nav .completer-input{
+#top-nav .completer-input{
     background-color: #f9f9f8;
     padding: 5px;
     border-radius: 4px;
     border:2px solid #222;
 }
 
-nav .completer-image-holder{
+#top-nav .completer-image-holder{
     width: 50px !important;
 }
 
-nav .completer-image{
+#top-nav .completer-image{
     width: 50px;
     height: 50px;
 }
 
-nav .completer-dropdown{
+#top-nav .completer-dropdown{
     width:400px !important;
 }
 
-nav .completer-item-text-image{
+#top-nav .completer-item-text-image{
     float: left !important;
     margin: 0 20px;
     width: 70% !important;
+}
+
+#top-nav .navbar-form .form-group,
+#top-nav .navbar-form input {
+    width:100%;
+}
+
+@media (max-width: 1038px) {
+    #top-nav .completer-dropdown{
+        width:100% !important;
+    }
+
+    #top-nav .completer-image-holder{
+        max-width: 25% !important;
+    }
+
+    #top-nav .completer-item-text-image{
+        margin: 0 10px;
+        width: 70% !important;
+    }
 }
 
 .img-upload-canvas{

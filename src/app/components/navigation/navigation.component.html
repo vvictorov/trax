@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav id="top-nav" class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed"
@@ -9,11 +9,10 @@
             </button>
             <a class="navbar-brand" routerLink="home">
                 <img src="../../../assets/images/logo.png">
-                <span>{{appTitle}}</span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="myNav" [ngbCollapse]="isCollapsed">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-page-links">
                 <li><a routerLink="home" routerLinkActive="active">Home</a></li>
                 <li><a routerLink="popular" routerLinkActive="active">Popular</a></li>
             </ul>
