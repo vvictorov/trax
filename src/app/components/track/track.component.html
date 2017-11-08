@@ -11,7 +11,7 @@
     <mat-card-actions>
         <mat-grid-list cols="3" rowHeight="40px">
             <mat-grid-tile>
-                <button mat-button (click)="playTrack(track)">
+                <button mat-button (click)="playTrack(track); audioPlayerService.audio.play()">
                     <mat-icon>play_arrow</mat-icon>
                 </button>
             </mat-grid-tile>

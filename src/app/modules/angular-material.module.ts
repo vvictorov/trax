@@ -1,7 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatRadioModule, MatSelectModule, MatSliderModule, MatSlideToggleModule} from '@angular/material';
+import {
+    MatDialog, MatDialogRef, MatRadioModule, MatSelectModule, MatSliderModule,
+    MatSlideToggleModule
+} from '@angular/material';
 import {MatMenuModule, MatSidenavModule, MatToolbarModule, MatListModule, MatGridListModule} from '@angular/material';
 import {
     MatCardModule,
@@ -23,9 +26,11 @@ import {
     MatSnackBarModule
 } from '@angular/material';
 import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
+import {ImageUploadComponent} from '../components/widgets/image-upload/image-upload.component';
 
 @NgModule({
     imports: [
+        MatDialogModule,
         MatAutocompleteModule,
         MatCheckboxModule,
         MatDatepickerModule,
@@ -57,6 +62,7 @@ import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/materi
         CommonModule
     ],
     exports: [
+        MatDialogModule,
         MatAutocompleteModule,
         MatCheckboxModule,
         MatDatepickerModule,
@@ -85,6 +91,9 @@ import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/materi
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
+    ],
+    entryComponents: [
+        ImageUploadComponent
     ],
     declarations: []
 })

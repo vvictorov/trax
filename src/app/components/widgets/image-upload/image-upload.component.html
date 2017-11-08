@@ -1,10 +1,7 @@
 <!--<fancy-image-uploader [options]="options" (onUpload)="onUpload($event)"></fancy-image-uploader>-->
 <div>
     <div *ngIf="currentImage && !data.image;">
-        <img src="{{currentImage}}" width="{{cropperSettings.croppedWidth}}" height="{{cropperSettings.croppedHeight}}"><br/><br/>
-        <label class="btn btn-primary" > <input type="file" #fileInput accept="image/*" (change)="onPhotoUpload($event)" style="display: none;">Change Avatar</label>
+        <input type="file" #fileInput accept="image/*" (change)="onPhotoUpload($event)" style="display: none;">
     </div>
     <img-cropper [image]="data" [settings]="cropperSettings"></img-cropper><br>
-    <img class="new-image" *ngIf="data?.image" [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
-
 </div>

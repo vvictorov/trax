@@ -1,7 +1,21 @@
-<h4>User: </h4>{{user?.name}}
-<h4>Email: </h4>{{user?.email}}
-<br/><br/>
-<div *ngIf="accountData">
-    <app-image-upload [currentImage]="accountData?.image"></app-image-upload>
+<div class="container">
+    <div class="col-lg-4 col-sm-12"></div>
+    <div class="col-lg-4 col-sm-12 text-center">
+        <div class="avatar-container">
+            <img class="user-avatar" *ngIf="accountData?.image" [src]="accountData.image">
+            <button id="change-avatar-btn" class="btn btn-primary">
+                <mat-icon class="icon">photo_camera</mat-icon>
+                <span class="btn-label" (click)="openDialog()">Change</span>
+            </button>
+        </div>
+        <h2>{{user?.name}}</h2>
+        <h4>{{user?.email}}</h4>
+    </div>
+    <div class="col-lg-4 col-sm-12"></div>
+
+    <div *ngIf="accountData">
+        <app-image-upload [currentImage]="accountData?.image"></app-image-upload>
+    </div>
+    <br/><br/>
 </div>
 

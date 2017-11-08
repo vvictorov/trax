@@ -37,6 +37,7 @@ import {FancyImageUploaderModule} from './components/widgets/fancy-image-uploade
 import {ImageCropperComponent, ImageCropperModule} from 'ng2-img-cropper';
 import { ViewTrackComponent } from './components/view-track/view-track.component';
 import {BusyModule} from 'angular2-busy';
+import {MatDialogModule} from '@angular/material';
 
 @NgModule({
     declarations: [

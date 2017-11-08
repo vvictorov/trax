@@ -3,6 +3,8 @@ import {User} from '../../models/user';
 import {UsersService} from '../../services/users.service';
 import {AuthService} from '../../services/auth.service';
 import {Subscription} from 'rxjs/Subscription';
+import {ImageUploadComponent} from '../widgets/image-upload/image-upload.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
     selector: 'app-account',
@@ -15,7 +17,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     public user: User;
     public accountData;
 
-    constructor(private usersService: UsersService, private authService: AuthService) {
+    constructor(private usersService: UsersService, private authService: AuthService, private changeAvatarDialog: MatDialog) {
         if (this.authService.check()) {
             this.user = this.authService.getUser();
         }
@@ -29,6 +31,17 @@ export class AccountComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+
+    openDialog(): void {
+        const dialogRef = this.changeAvatarDialog.open(ImageUploadComponent, {
+            panelClass: 'change-avatar-dialog',
+            data: {}
+        });
+
+        // dialogRef.componentInstance.onAvatarChanged.subscribe((data) => {
+        //     console.log(data);
+        // });
     }
 
 }

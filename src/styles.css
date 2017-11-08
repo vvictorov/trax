@@ -11,6 +11,10 @@ body{
     color: #5e5e5e;
 }
 
+*:focus{
+    outline: none !important;
+}
+
 @keyframes fadeIn{
     0%{
         opacity:0;
@@ -302,3 +306,18 @@ h1,h2,h3,h4,h5,h6{
        }
 }
 /*End of loading label*/
+
+.btn-primary{
+    background-color: #333;
+    color: #ccc;
+    border: 0;
+}
+
+.btn-primary:hover{
+    background-color: #000;
+}
+
+.btn-primary:active{
+    background-color: #ccc;
+    color: #333;
+}

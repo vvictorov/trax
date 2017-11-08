@@ -12,7 +12,7 @@ import {AlertService} from '../../services/alert.service';
 export class TrackComponent implements OnInit {
 
     public display = 'show';
-    constructor(private audioPlayerService: AudioPlayerService, private tracksService: TracksService, private alertService: AlertService) {
+    constructor(public audioPlayerService: AudioPlayerService, private tracksService: TracksService, private alertService: AlertService) {
     }
 
     @Input() track: Track;
